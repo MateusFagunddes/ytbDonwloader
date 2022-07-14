@@ -107,4 +107,4 @@ while True:
 
     desejaContinuar = input(f'{Fore.GREEN}Deseja continuar? (s/n) ')
     if desejaContinuar == 'n':
-        break            
+        break           
