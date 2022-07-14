@@ -6,7 +6,7 @@ from colorama import init, Fore
 init(autoreset=True)
 
 def getFormat():
-    format = input('Insert the file format (.mp3, .mp4) REMEMBER THE DOT: ')
+    format = input('Insert the file format (.mp3, .mp4): ')
     return format
 
 def obMsg(download: bool):
@@ -92,7 +92,7 @@ def onlyPlaylistDownload(format:str = '.mp4'):
         download_video(videoUrl[i], format)
 
 while True:
-    op = input(f'{Fore.GREEN} 1 - DOWNLOAD A SINGLE VIDEO\n2 - DOWNLOAD A PLAYLIST\n3 - DOWNLOAD VIDEOS FROM A TXT FILE \n{Fore.RESET}YOUR CHOICE: ')
+    op = input(f'{Fore.GREEN}1 - DOWNLOAD A SINGLE VIDEO\n2 - DOWNLOAD A PLAYLIST\n3 - DOWNLOAD VIDEOS FROM A TXT FILE \n{Fore.RESET}YOUR CHOICE: ')
     if op == '1':
         link = input('VIDEO URL: ')
         download_video(link, getFormat())
@@ -103,7 +103,7 @@ while True:
         elif info == '2':
             onlyPlaylistDownload(getFormat())    
     elif op == '3':
-        file = input('NAME OF THE TXT FILE (REMEMBER OF THE DOT): ')
+        file = input('NAME OF THE TXT FILE (EXEMPLE: videos.txt): ')
         download_from_txt(file, getFormat())
 
     continueQ = input(f'{Fore.GREEN}CONTINUE? (Y/N) ').lower()
