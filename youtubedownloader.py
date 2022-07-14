@@ -2,6 +2,7 @@ from time import sleep
 from pytube import YouTube, Playlist, request
 from tqdm import tqdm
 from colorama import init, Fore
+
 init(autoreset=True)
 
 def getFormat():
@@ -9,7 +10,7 @@ def getFormat():
     return format
 
 def obMsg(download: bool):
-    phrases = ['CONNECTING WITH YOUTUBE API', 'DONWLOADING VIDEO']
+    phrases = ['CONNECTING WITH YOUTUBE API', 'DOWNLOADING VIDEO']
     phrase = phrases[0] if download else phrases[1]
     cor = Fore.YELLOW if download else Fore.BLUE
     for i in phrase:
@@ -91,7 +92,7 @@ def onlyPlaylistDownload(format:str = '.mp4'):
         download_video(videoUrl[i], format)
 
 while True:
-    op = input(f'{Fore.GREEN}1 - DOWNLOAD A SINGLE VIDEO\n2 - DOWNLOAD A PLAYLIST\n3 - DOWNLOAD VIDEOS FROM A TXT FILE \n{Fore.RESET}YOUR CHOICE: ')
+    op = input(f'{Fore.GREEN} 1 - DOWNLOAD A SINGLE VIDEO\n2 - DOWNLOAD A PLAYLIST\n3 - DOWNLOAD VIDEOS FROM A TXT FILE \n{Fore.RESET}YOUR CHOICE: ')
     if op == '1':
         link = input('VIDEO URL: ')
         download_video(link, getFormat())
