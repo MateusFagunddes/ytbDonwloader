@@ -29,13 +29,13 @@ def download_video(link, formato:str = '.mp4'):
         pass
     else:
         formato = '.mp4'
-    path = r'C:\Users\mateu\Videos\videos baixados com python'
+    path = r'videos/'
     youtube = YouTube(link, on_progress_callback= progress_bar)
     lengthVideo = youtube.length /60
     video = youtube.streams.get_highest_resolution()
     if formato == '.mp3':
         video = youtube.streams.get_audio_only()
-        path = r'C:\Users\mateu\Music\audio baixados com python'    
+        path = r'audio/'    
     print(f'{Fore.YELLOW}┌' + f'{Fore.YELLOW}─' * (len(video.title) + 42) + f'{Fore.YELLOW}┐')
     print(f'{Fore.YELLOW}| nome: ', video.title, ' '*32,f"{Fore.YELLOW}|")
     print(f'{Fore.YELLOW}| tamanho: ', round((video.filesize / (1024**2)),2), 'MB')
